@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 33 16% 95%;
+    --foreground: 232 14% 16%;
+
+    --card: 35 8% 98%;
+    --card-foreground: 232 14% 16%;
+
+    --popover: 36 6% 99%;
+    --popover-foreground: 232 14% 16%;
+
+    --primary: 234 18% 18%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 12% 92%;
+    --secondary-foreground: 232 14% 16%;
+
+    --muted: 35 10% 92%;
+    --muted-foreground: 232 10% 44%;
+
+    --accent: 14 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 7 88% 47%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 34 10% 85%;
+    --input: 34 10% 92%;
+    --ring: 234 18% 18%;
+
+    --radius: 0.75rem;
+
+    --chart-blue: 234 24% 24%;
+    --chart-teal: 183 60% 43%;
+    --chart-orange: 15 85% 55%;
+    --chart-red: 11 85% 55%;
+    --chart-purple: 262 50% 48%;
+    --chart-amber: 42 70% 58%;
+    --chart-gray: 232 10% 48%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    background-image:
+      radial-gradient(circle at 12% 10%, rgba(66, 55, 148, 0.08), transparent 40%),
+      radial-gradient(circle at 90% 15%, rgba(220, 77, 58, 0.12), transparent 35%),
+      radial-gradient(circle at 52% 100%, rgba(233, 204, 141, 0.10), transparent 38%);
+    background-attachment: fixed;
+  }
+
+  code,
+  pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  main,
+  header,
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-hero {
+    background: radial-gradient(circle at 20% -10%, rgba(57, 64, 103, 0.28), transparent 55%),
+      radial-gradient(circle at 80% 10%, rgba(220, 77, 58, 0.22), transparent 55%),
+      radial-gradient(circle at 50% 110%, rgba(233, 204, 141, 0.24), transparent 55%),
+      linear-gradient(180deg, rgb(var(--background)), rgb(var(--secondary)));
+  }
+
+  .bg-gradient-ink {
+    background: linear-gradient(135deg, rgba(33, 42, 85, 1), rgba(63, 56, 112, 1), rgba(115, 70, 178, 1));
+  }
+
+  .bg-gradient-accent {
+    background: linear-gradient(135deg, rgba(220, 77, 58, 1), rgba(255, 180, 110, 1));
+  }
+
+  .bg-gradient-aurora {
+    background: conic-gradient(from 180deg at 50% 50%, rgba(233, 242, 255, 0.85), rgba(255, 237, 219, 0.75), rgba(255, 255, 255, 0.72), rgba(224, 243, 255, 0.70), rgba(233, 242, 255, 0.85));
+  }
+
+  .bg-hero-light {
+    background: linear-gradient(180deg, #f8fbff 0%, #f0f4ff 45%, #eef5ff 100%);
+  }
+
+  .hero-texture {
+    background-image: radial-gradient(circle at 12% 18%, rgba(59, 130, 246, 0.08), transparent 24%),
+      radial-gradient(circle at 78% 22%, rgba(248, 113, 113, 0.06), transparent 18%),
+      radial-gradient(circle at 50% 82%, rgba(14, 165, 233, 0.05), transparent 22%);
+  }
+
+  .text-gradient-cosmos {
+    background: linear-gradient(110deg, #7abfff, #ffb470, #81e1fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .home-hero-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .shadow-paper {
+    box-shadow: 0 1px 2px rgba(33, 42, 85, 0.06), 0 6px 20px rgba(33, 42, 85, 0.08);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 2px 4px rgba(33, 42, 85, 0.08), 0 18px 44px rgba(33, 42, 85, 0.14);
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .font-serif {
+    font-family: 'Fraunces', serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .grid-paper {
+    background-image:
+      linear-gradient(rgba(33, 42, 85, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(33, 42, 85, 0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .starfield {
+    background-image:
+      radial-gradient(circle at 12% 22%, rgba(33, 42, 85, 0.7) 1px, transparent 50%),
+      radial-gradient(circle at 28% 70%, rgba(220, 77, 58, 0.6) 1px, transparent 50%),
+      radial-gradient(circle at 55% 35%, rgba(255, 180, 110, 0.7) 1.5px, transparent 50%),
+      radial-gradient(circle at 78% 60%, rgba(33, 42, 85, 0.6) 1px, transparent 50%),
+      radial-gradient(circle at 88% 18%, rgba(220, 77, 58, 0.55) 1px, transparent 50%),
+      radial-gradient(circle at 42% 88%, rgba(255, 180, 110, 0.55) 1.5px, transparent 50%);
+    background-size: 100% 100%;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(33, 42, 85, 0.3) transparent;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  .animate-twinkle {
+    animation: twinkle 1.8s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  .text-gradient-cosmos {
+    background: linear-gradient(110deg, #9d79ff, #ff8c5d, #80d0c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .italic-fix {
+    font-style: normal;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 1.8s ease-out infinite;
+  }
+
+  .rounded-card {
+    border-radius: 1.5rem;
+  }
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  to { transform: translateY(-12px); }
+}
+
+@keyframes fade-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}

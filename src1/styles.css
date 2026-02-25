@@ -1,0 +1,280 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-ink: var(--ink);
+  --color-parchment: var(--parchment);
+  --color-sage: var(--sage);
+  --color-rust: var(--rust);
+  --color-gold: var(--gold);
+  --color-cosmos: var(--cosmos);
+  --color-nebula: var(--nebula);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-serif: "Fraunces", "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", "Inter Tight", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* NASA Observatory — richer parchment, deeper midnight navy, vivid signal red, burnished gold, mission teal */
+  --background: oklch(0.925 0.018 82);            /* deeper warm parchment */
+  --foreground: oklch(0.16 0.04 256);             /* near-black ink with navy bias */
+  --parchment: oklch(0.945 0.02 82);
+  --ink: oklch(0.16 0.04 256);
+  --cosmos: oklch(0.19 0.14 262);                 /* deeper midnight navy */
+  --nebula: oklch(0.56 0.22 28);                  /* vivid signal red */
+
+  --card: oklch(0.97 0.012 84);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.985 0.01 84);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.19 0.14 262);                /* deeper midnight navy */
+  --primary-foreground: oklch(0.98 0.012 85);
+
+  --secondary: oklch(0.9 0.02 80);                /* richer warm sand */
+  --secondary-foreground: oklch(0.2 0.05 258);
+
+  --muted: oklch(0.9 0.016 80);
+  --muted-foreground: oklch(0.4 0.025 256);
+
+  --accent: oklch(0.56 0.22 28);                  /* vivid signal red */
+  --accent-foreground: oklch(0.99 0.008 85);
+
+  --sage: oklch(0.52 0.12 198);                   /* mission teal */
+  --rust: oklch(0.56 0.22 28);
+  --gold: oklch(0.78 0.16 78);                    /* brighter burnished gold */
+
+  --destructive: oklch(0.55 0.22 28);
+  --destructive-foreground: oklch(0.99 0.008 85);
+
+  --border: oklch(0.82 0.02 78);
+  --input: oklch(0.88 0.016 80);
+  --ring: oklch(0.19 0.14 262);
+
+  --chart-1: oklch(0.26 0.15 262);   /* midnight navy */
+  --chart-2: oklch(0.58 0.22 28);    /* signal red */
+  --chart-3: oklch(0.74 0.16 78);    /* gold */
+  --chart-4: oklch(0.52 0.12 198);   /* mission teal */
+  --chart-5: oklch(0.46 0.18 298);   /* cosmic indigo */
+
+  --sidebar: oklch(0.96 0.012 82);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  --gradient-hero: radial-gradient(ellipse at 15% -5%, oklch(0.22 0.16 262 / 0.28), transparent 55%),
+                   radial-gradient(ellipse at 88% 18%, oklch(0.56 0.22 28 / 0.22), transparent 55%),
+                   radial-gradient(ellipse at 60% 110%, oklch(0.78 0.16 78 / 0.24), transparent 55%),
+                   radial-gradient(ellipse at 35% 60%, oklch(0.52 0.12 198 / 0.16), transparent 60%),
+                   linear-gradient(180deg, oklch(0.945 0.02 82), oklch(0.9 0.022 78));
+  --gradient-ink: linear-gradient(135deg, oklch(0.18 0.1 258), oklch(0.24 0.13 252) 50%, oklch(0.32 0.16 280));
+  --gradient-accent: linear-gradient(135deg, oklch(0.55 0.2 28), oklch(0.7 0.16 50));
+  --gradient-aurora: conic-gradient(from 180deg at 50% 50%,
+                       oklch(0.32 0.14 258) 0deg,
+                       oklch(0.58 0.2 28) 110deg,
+                       oklch(0.74 0.14 75) 200deg,
+                       oklch(0.42 0.16 295) 290deg,
+                       oklch(0.32 0.14 258) 360deg);
+
+  --shadow-paper: 0 1px 2px oklch(0.18 0.08 258 / 0.06), 0 6px 20px oklch(0.18 0.08 258 / 0.08);
+  --shadow-elevated: 0 2px 4px oklch(0.18 0.08 258 / 0.08), 0 18px 44px oklch(0.18 0.08 258 / 0.14);
+  --shadow-glow: 0 0 0 1px oklch(0.22 0.12 258 / 0.18), 0 12px 36px oklch(0.22 0.12 258 / 0.25);
+  --shadow-gold: 0 0 0 1px oklch(0.74 0.14 75 / 0.28), 0 10px 30px oklch(0.74 0.14 75 / 0.32);
+  --shadow-red:  0 0 0 1px oklch(0.55 0.18 28 / 0.28), 0 10px 30px oklch(0.55 0.18 28 / 0.3);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    position: relative;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 12% -10%, oklch(0.28 0.14 258 / 0.10), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 110% 18%, oklch(0.58 0.2 28 / 0.08), transparent 60%),
+      radial-gradient(ellipse 90% 50% at 50% 110%, oklch(0.74 0.14 75 / 0.08), transparent 60%);
+    background-attachment: fixed;
+  }
+  /* Fine grain + grid texture across the whole app */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(oklch(0.22 0.1 258 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.22 0.1 258 / 0.04) 1px, transparent 1px),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.14  0 0 0 0 0.22  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    background-size: 44px 44px, 44px 44px, 180px 180px;
+    mix-blend-mode: multiply;
+    opacity: 0.35;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 28% 28%, oklch(0.32 0.14 258 / 0.12), transparent 45%),
+      radial-gradient(circle at 72% 72%, oklch(0.58 0.2 28 / 0.10), transparent 45%);
+    filter: blur(40px);
+    animation: drift 22s ease-in-out infinite alternate;
+  }
+  main, header, footer { position: relative; z-index: 1; }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 96, "SOFT" 50;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+  ::selection { background: oklch(0.74 0.14 75 / 0.45); color: oklch(0.18 0.04 258); }
+}
+
+@layer utilities {
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-ink { background: var(--gradient-ink); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  .bg-gradient-aurora { background: var(--gradient-aurora); }
+  .shadow-paper { box-shadow: var(--shadow-paper); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+  .shadow-red { box-shadow: var(--shadow-red); }
+  .transition-smooth { transition: var(--transition-smooth); }
+  .font-serif { font-family: var(--font-serif); }
+  .font-mono { font-family: var(--font-mono); }
+  .grid-paper {
+    background-image:
+      linear-gradient(oklch(0.22 0.12 258 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.22 0.12 258 / 0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .starfield {
+    background-image:
+      radial-gradient(1px 1px at 12% 22%, oklch(0.32 0.14 258 / 0.7), transparent 50%),
+      radial-gradient(1px 1px at 28% 70%, oklch(0.58 0.2 28 / 0.6), transparent 50%),
+      radial-gradient(1.5px 1.5px at 55% 35%, oklch(0.74 0.14 75 / 0.7), transparent 50%),
+      radial-gradient(1px 1px at 78% 60%, oklch(0.32 0.14 258 / 0.6), transparent 50%),
+      radial-gradient(1px 1px at 88% 18%, oklch(0.58 0.2 28 / 0.55), transparent 50%),
+      radial-gradient(1.5px 1.5px at 42% 88%, oklch(0.74 0.14 75 / 0.55), transparent 50%);
+    background-size: 100% 100%;
+  }
+  .text-balance { text-wrap: balance; }
+  .text-gradient-cosmos {
+    background: linear-gradient(120deg, oklch(0.22 0.12 258), oklch(0.55 0.18 28) 55%, oklch(0.7 0.14 70));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass {
+    background: oklch(1 0 0 / 0.65);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid oklch(1 0 0 / 0.6);
+  }
+  .ring-aurora { position: relative; }
+  .ring-aurora::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-aurora);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: spin-slow 18s linear infinite;
+  }
+}
+
+@keyframes float-slow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulse-ring { 0% { transform: scale(0.95); opacity: 0.7; } 100% { transform: scale(1.6); opacity: 0; } }
+@keyframes draw-line { to { stroke-dashoffset: 0; } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes twinkle { 0%,100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+@keyframes gradient-shift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-r, 80px)) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(var(--orbit-r, 80px)) rotate(-360deg); }
+}
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.animate-float { animation: float-slow 6s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2.5s ease-out infinite; }
+.animate-spin-slow { animation: spin-slow 22s linear infinite; }
+.animate-twinkle { animation: twinkle 3.5s ease-in-out infinite; }
+.animate-shimmer { background: linear-gradient(110deg, transparent 30%, oklch(1 0 0 / 0.5) 50%, transparent 70%); background-size: 200% 100%; animation: shimmer 2.4s linear infinite; }
+.animate-gradient { background-size: 200% 200%; animation: gradient-shift 8s ease infinite; }
+.animate-orbit { animation: orbit 14s linear infinite; }
+.animate-fade-up { animation: fade-up 0.6s ease-out both; }
+
+@keyframes drift {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%  { transform: translate3d(3%, -2%, 0) rotate(8deg); }
+  100% { transform: translate3d(-2%, 3%, 0) rotate(-6deg); }
+}
+@media (prefers-reduced-motion: reduce) { body::after { animation: none; } }
