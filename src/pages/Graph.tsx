@@ -11,7 +11,11 @@ const TYPE_META: Record<GraphNode["type"], { color: string; label: string }> = {
 };
 
 export default function Graph() {
-  const { data, isLoading } = useQuery(["graph"], fetchGraph, { staleTime: 1000 * 60 });
+  const { data, isLoading } = useQuery({
+    queryKey: ["graph"],
+    queryFn: fetchGraph,
+    staleTime: 1000 * 60,
+  });
   const [hover, setHover] = useState<string | null>(null);
   const nodes = data?.nodes ?? [];
   const edges = data?.edges ?? [];

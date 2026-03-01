@@ -9,7 +9,9 @@ export default function Publications() {
   const [sort, setSort] = useState<SortKey>("year");
   const [dir, setDir] = useState<1 | -1>(-1);
 
-  const { data: publications = [], isLoading } = useQuery(["publications"], fetchPublications, {
+  const { data: publications = [], isLoading } = useQuery({
+    queryKey: ["publications"],
+    queryFn: fetchPublications,
     staleTime: 1000 * 60,
   });
 

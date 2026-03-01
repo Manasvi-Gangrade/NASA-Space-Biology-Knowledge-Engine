@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ntrs",
+    "name": "NASA Technical Reports Server",
+    "url": "https://ntrs.nasa.gov",
+    "description": "Primary NASA repository for technical reports, conference papers, journal articles, and research reports.",
+    "focus": "Aerospace and life sciences publications"
+  },
+  {
+    "id": "pubspace",
+    "name": "PubSpace",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/",
+    "description": "Open-access archive for NASA-funded peer-reviewed publications and research articles.",
+    "focus": "NASA-funded journal articles and open-access manuscripts"
+  },
+  {
+    "id": "osdr",
+    "name": "NASA Open Science Data Repository",
+    "url": "https://science.nasa.gov/osdr",
+    "description": "Life and space science publication archive with experiment metadata and open data records.",
+    "focus": "Space biology and experimental metadata"
+  },
+  {
+    "id": "dataPortal",
+    "name": "NASA Open Data Portal",
+    "url": "https://data.nasa.gov",
+    "description": "Public metadata repository for NASA datasets, including science and mission data. Useful for linking publications to datasets.",
+    "focus": "Structured datasets and metadata linking"
+  },
+  {
+    "id": "discoveryEngine",
+    "name": "Science Discovery Engine",
+    "url": "https://science.nasa.gov/research-archives-tools/research/",
+    "description": "Broad NASA science search portal for discovering publications across NASA disciplines.",
+    "focus": "Cross-disciplinary NASA research discovery"
+  }
+]

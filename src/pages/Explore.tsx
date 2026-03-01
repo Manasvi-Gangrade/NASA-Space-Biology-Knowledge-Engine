@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { Search, Sparkles, Filter, ChevronRight, X } from "lucide-react";
 import { organisms, conditions, systems } from "@/lib/data";
 import { searchPublications } from "@/lib/api";
@@ -19,19 +19,21 @@ export default function Explore() {
     setActive(null);
   };
 
-  const { data: filtered = [], isLoading } = useQuery([
-    "search",
-    query,
-    orgFilter,
-    condFilter,
-    sysFilter,
-  ], () => searchPublications({
-    query,
-    organism: orgFilter,
-    condition: condFilter,
-    system: sysFilter,
-  }), {
-    keepPreviousData: true,
+  const { data: filtered = [], isLoading } = useQuery({
+    queryKey: [
+      "search",
+      query,
+      orgFilter,
+      condFilter,
+      sysFilter,
+    ],
+    queryFn: () => searchPublications({
+      query,
+      organism: orgFilter,
+      condition: condFilter,
+      system: sysFilter,
+    }),
+    placeholderData: keepPreviousData,
   });
 
   const activePub = filtered.find((p) => p.id === active) ?? filtered[0];
